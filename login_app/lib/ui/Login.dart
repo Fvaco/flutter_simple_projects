@@ -35,21 +35,25 @@ class LoginState extends State<Login> {
       appBar: new AppBar(
         title: new Text("Login"),
         centerTitle: true,
-        backgroundColor: Colors.blueAccent,
+        backgroundColor: Colors.blue,
+        elevation: 2.0,
+
       ),
       body: new Container(
-        padding: new EdgeInsets.only(top: 20.0),
-        alignment: Alignment.center,
-        child: new Column(
+        alignment: Alignment.bottomCenter,
+        child: new ListView(
           children: <Widget>[
-            new Image.asset(
-              "images/login_image.png",
-              height: 100.0,
-              width: 240.0,
-              fit: BoxFit.scaleDown,
+            new Padding(
+              padding: const EdgeInsets.symmetric(vertical: 15.0),
+              child: new Image.asset(
+                "images/login_image.png",
+                height: 100.0,
+                width: 240.0,
+                fit: BoxFit.scaleDown,
+              ),
             ),
             new Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: new Card(
                 color: Colors.white,
                 elevation: 2.0,
@@ -107,11 +111,13 @@ class LoginState extends State<Login> {
                 ),
               ),
             ),
-            new Text(
-              "Welcome $_welcomeString!",
-              style: new TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 15.0
+            new Center(
+              child: new Text(
+                "Welcome $_welcomeString!",
+                style: new TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15.0
+                ),
               ),
             ),
           ],

@@ -12,9 +12,9 @@ class HomeState extends State<Home> {
     "jupiter": {
       "image": "images/002-jupiter.png",
       "name": "Jupiter",
-      "factor": 2.3
+      "factor": 2.34
     },
-    "mars": {"image": "images/003-mars.png", "name": "Mars", "factor": 0.4},
+    "mars": {"image": "images/003-mars.png", "name": "Mars", "factor": 0.38},
     "ducks": {
       "image": "images/couple.png",
       "name": "Ducks"

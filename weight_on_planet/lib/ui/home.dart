@@ -30,17 +30,14 @@ class HomeState extends State<Home> {
 
   void _handleRadioValueChanged(String value) {
     setState(() {
-      _calculateWeight(_currentWeightOnEarth);
       _radioValue = value;
+      _calculateWeight(_currentWeightOnEarth);
       _calculateCurrentValues();
       _radioValueName = _availableImages[_radioValue]["name"];
     });
   }
 
   void _userWeightChanged(String value) {
-    if(value.isEmpty){
-      debugPrint("HELLO!");
-    }
     setState(() {
       _currentWeightOnEarth = double.parse(value);
       _calculateWeight(_currentWeightOnEarth);

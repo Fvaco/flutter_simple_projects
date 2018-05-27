@@ -34,11 +34,13 @@ class HomeState extends State<Home> {
       _radioValue = value;
       _calculateCurrentValues();
       _radioValueName = _availableImages[_radioValue]["name"];
-
     });
   }
 
   void _userWeightChanged(String value) {
+    if(value.isEmpty){
+      debugPrint("HELLO!");
+    }
     setState(() {
       _currentWeightOnEarth = double.parse(value);
       _calculateWeight(_currentWeightOnEarth);
@@ -46,7 +48,7 @@ class HomeState extends State<Home> {
     });
   }
 
-  void _calculateCurrentValues(){
+  void _calculateCurrentValues() {
     if (_currentWeightOnEarth == 22.0) {
       _currentImage = _availableImages["ducks"]["image"];
     } else {
@@ -55,8 +57,9 @@ class HomeState extends State<Home> {
     }
   }
 
-  String _calculateWeight(double value){
-    return _currentWeight = (value * _availableImages[_radioValue]["factor"]).toStringAsFixed(1);
+  String _calculateWeight(double value) {
+    return _currentWeight =
+        (value * _availableImages[_radioValue]["factor"]).toStringAsFixed(1);
   }
 
   @override
@@ -79,11 +82,21 @@ class HomeState extends State<Home> {
         child: new ListView(
           children: <Widget>[
             new Padding(
-              padding: const EdgeInsets.symmetric(vertical: 20.0),
+              padding: const EdgeInsets.only(top: 20.0),
               child: new Image.asset(
                 _currentImage,
                 height: 100.0,
                 width: 240.0,
+              ),
+            ),
+            new Center(
+              child: new Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: new Text(_radioValueName,
+                style: new TextStyle(
+                  color: Colors.white70,
+                  fontWeight: FontWeight.bold
+                ),),
               ),
             ),
             new Padding(

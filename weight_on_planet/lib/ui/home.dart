@@ -66,16 +66,17 @@ class HomeState extends State<Home> {
       appBar: new AppBar(
         title: new Text("Planet Weight Machine"),
         backgroundColor: Colors.deepPurple.shade900,
-        centerTitle: true,
+        centerTitle: false,
       ),
       body: new Container(
         alignment: Alignment.center,
         decoration: new BoxDecoration(
-            gradient: new LinearGradient(colors: [
-          Colors.grey.shade900,
-          Colors.deepPurple.shade900,
-          Colors.blueGrey.shade900
-        ])),
+          gradient: new LinearGradient(colors: [
+            Colors.grey.shade900,
+            Colors.deepPurple.shade900,
+            Colors.blueGrey.shade900
+          ]),
+        ),
         child: new ListView(
           children: <Widget>[
             new Padding(
@@ -89,11 +90,11 @@ class HomeState extends State<Home> {
             new Center(
               child: new Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: new Text(_radioValueName,
-                style: new TextStyle(
-                  color: Colors.white70,
-                  fontWeight: FontWeight.bold
-                ),),
+                child: new Text(
+                  _radioValueName,
+                  style: new TextStyle(
+                      color: Colors.white70, fontWeight: FontWeight.bold),
+                ),
               ),
             ),
             new Padding(

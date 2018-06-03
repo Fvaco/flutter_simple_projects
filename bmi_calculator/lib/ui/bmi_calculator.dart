@@ -79,6 +79,14 @@ class BMICalculatorState extends State<BMICalculator> {
           return new Column(
             children: <Widget>[
               new Text(
+                "Your BMI is",
+                style: new TextStyle(
+                  fontWeight: FontWeight.w800,
+                  fontSize: 15.5,
+                  color: Colors.black54
+                ),
+              ),
+              new Text(
                 value.toStringAsFixed(2),
                 style: new TextStyle(
                     color: data["resultColor"],
@@ -96,9 +104,7 @@ class BMICalculatorState extends State<BMICalculator> {
                 padding: const EdgeInsets.only(top: 10.0),
                 child: new Text(
                   data["resultDescription"],
-                  style: new TextStyle(
-                      color: Colors.black45,
-                      fontSize: 15.0),
+                  style: new TextStyle(color: Colors.black45, fontSize: 15.0),
                 ),
               ),
             ],
@@ -149,11 +155,12 @@ class BMICalculatorState extends State<BMICalculator> {
               ],
             ),
             new Padding(
-              padding: const EdgeInsets.only(bottom: 20.0,left: 50.0, right: 50.0),
+              padding:
+                  const EdgeInsets.only(bottom: 20.0, left: 50.0, right: 50.0),
               child: new RaisedButton(
                 color: Colors.blue,
                 textColor: Colors.blue.shade50,
-                child: new Text("CALCULATE"),
+                child: new Text("CALCULATE BMI"),
                 onPressed: () {
                   setState(() {
                     _resultWidget = _getResultWidget();

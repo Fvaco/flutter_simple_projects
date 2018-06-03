@@ -43,20 +43,37 @@ void main() async {
         child: new ListView.builder(
           itemCount: _posts.length,
           itemBuilder: (BuildContext context, int position) {
-//            if(position.isOdd) return new Divider();
+            if(position.isOdd) return new Divider();
+
+            final index = position ~/2;
             return new ListTile(
               onTap: () {
-                debugPrint("$position tapped");
+                showDialog(context: context, builder: (context){
+
+                  return new AnimatedContainer(
+                    duration: new Duration(seconds: 1),
+                    child: new AlertDialog(
+                      actions: <Widget>[
+                        new FlatButton(onPressed: (){
+                          Navigator.pop(context);
+                        }, child: new Text("OK")),
+                      ],
+                      title: new Text("${_posts[index]["title"]}"),
+                      content: new Text("${_posts[index]["body"]}"),
+                    ),
+                  );
+                });
               },
               leading: new CircleAvatar(
                 backgroundColor: Colors.red.shade700,
+                child: new Text('${_posts[index]["id"]}'),
               ),
               title: new Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   new Text(
-                    _posts[position]['title'],
+                    _posts[index]['title'],
                     maxLines: 1,
                     style: new TextStyle(
                       fontWeight: FontWeight.w600,
@@ -64,11 +81,11 @@ void main() async {
                     ),
                   ),
                   new Text(
-                    _posts[position]['body'],
+                    _posts[index]['body'],
                     maxLines: 3,
                     style: new TextStyle(color: Colors.grey.shade500),
                   ),
-                  new Divider()
+
                 ],
               ),
             );

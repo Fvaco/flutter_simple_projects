@@ -81,10 +81,9 @@ class BMICalculatorState extends State<BMICalculator> {
               new Text(
                 "Your BMI is",
                 style: new TextStyle(
-                  fontWeight: FontWeight.w800,
-                  fontSize: 15.5,
-                  color: Colors.black54
-                ),
+                    fontWeight: FontWeight.w800,
+                    fontSize: 15.5,
+                    color: Colors.black54),
               ),
               new Text(
                 value.toStringAsFixed(2),
@@ -151,22 +150,26 @@ class BMICalculatorState extends State<BMICalculator> {
                   decoration: new InputDecoration(
                       icon: new Icon(Icons.straighten),
                       labelText: "Yout height in cm"),
-                )
+                ),
+                new Padding(
+                  padding: const EdgeInsets.only(top: 25.0),
+                  child: new Center(
+                    child: new RaisedButton(
+                      color: Colors.blue,
+                      textColor: Colors.blue.shade50,
+                      child: new Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 10.0),
+                        child: new Text("CALCULATE BMI"),
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          _resultWidget = _getResultWidget();
+                        });
+                      },
+                    ),
+                  ),
+                ),
               ],
-            ),
-            new Padding(
-              padding:
-                  const EdgeInsets.only(bottom: 20.0, left: 50.0, right: 50.0),
-              child: new RaisedButton(
-                color: Colors.blue,
-                textColor: Colors.blue.shade50,
-                child: new Text("CALCULATE BMI"),
-                onPressed: () {
-                  setState(() {
-                    _resultWidget = _getResultWidget();
-                  });
-                },
-              ),
             ),
             new BMIStyledCard(
               <Widget>[_resultWidget],

@@ -79,7 +79,7 @@ class BMICalculatorState extends State<BMICalculator> {
           return new Column(
             children: <Widget>[
               new Text(
-                value.toStringAsFixed(1),
+                value.toStringAsFixed(2),
                 style: new TextStyle(
                     color: data["resultColor"],
                     fontWeight: FontWeight.w600,

@@ -44,7 +44,7 @@ class BMICalculatorState extends State<BMICalculator> {
   TextEditingController _heightController = new TextEditingController();
 
   double _calculateResult() {
-    double age;
+    int age; // this is unused but requested in our formula
     double weight;
     double height;
     double result;
@@ -52,7 +52,7 @@ class BMICalculatorState extends State<BMICalculator> {
         _heightController.text.isEmpty ||
         _weightController.text.isEmpty) return null;
 
-    age = double.parse(_ageController.text);
+    age = int.parse(_ageController.text);
     weight = double.parse(_weightController.text);
     height = double.parse(_heightController.text);
 
